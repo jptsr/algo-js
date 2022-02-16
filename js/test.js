@@ -40,3 +40,43 @@ const readlineSync = require("readline-sync");
 // beware  of variable type !
 // console.log('10' + '5');
 // console.log(10 + 5);
+
+/* Var, let, const
+Var: goblal or local (in/outside a function). Can be re-declared and update. Needs to be on the top of the scope, if not, it'll be 
+"undefined".
+Let: preferred for variable declarations. Blocked scope {}, means that the variables declared inside the block will only live inside. Can be
+updated but not re-declared. If we re-declare the same variable in different scopes then no error. Needs to be on the top of the scope, if 
+not, it'll be "Reference Error".
+Const: variable for constant values. Block scope {}. Cannot be updated or re-declared. Const object can see their properties updated.
+    const greeting = {
+        message: "say Hi",
+        times: 4
+    }
+    greeting = {
+        words: "Hello",
+        number: "five"
+    } => CAN'T
+    greeting.message = "say Hello instead"; => OK
+Needs to be on the top of the scope. */
+
+/* Declare, redeclare and update : 
+Let hi = "hello"; (declare)
+let hi = "bonjour"; (re-declare)
+hi = "bonjour*; (update) */
+
+// COMPARISON OPERATORS
+// ===: returns true if both operands have exactly the same value. Else it returns false.
+// !=: returns true if both operands don't have the same value.
+// >: returns true if the first operand is strictly greater than the second one.
+// <: returns true if the first operand is strictly lower than the second one.
+// >=: returns true if the first operand is greater than or equal to the second one.
+// <=: returns true if the first operand is lower than or equal to the second one.
+
+// LOGIC OPERATORS 
+// &&: returns true if both operands are true.
+// ||: returns true if any of the operands are true.
+// !: only takes one operand. Inverse the value of its operand. If it was true it becomes false. If it was false it becomes true.
+
+// ELSE IF
+// Another structure to use along if. It allows to make a second test only if the previous one already failed. Note that you can use as many 
+// else if as you want.

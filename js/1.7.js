@@ -7,29 +7,6 @@ Subtract the birth year
 Add 1766
 Test with your own birth year and your shoe size. */
 
-/* Var, let, const
-Var: goblal or local (in/outside a function). Can be re-declared and update. Needs to be on the top of the scope, if not, it'll be 
-"undefined".
-Let: preferred for variable declarations. Blocked scope {}, means that the variables declared inside the block will only live inside. Can be
-updated but not re-declared. If we re-declare the same variable in different scopes then no error. Needs to be on the top of the scope, if 
-not, it'll be "Reference Error".
-Const: variable for constant values. Block scope {}. Cannot be updated or re-declared. Const object can see their properties updated.
-    const greeting = {
-        message: "say Hi",
-        times: 4
-    }
-    greeting = {
-        words: "Hello",
-        number: "five"
-    } => CAN'T
-    greeting.message = "say Hello instead"; => OK
-Needs to be on the top of the scope. */
-
-/* Declare, redeclare and update : 
-Let hi = "hello"; (declare)
-let hi = "bonjour"; (re-declare)
-hi = "bonjour*; (update) */
-
 const readlineSync = require("readline-sync");
 
 let shoeSize = new Number(readlineSync.question("What is your shoe size ? "));
