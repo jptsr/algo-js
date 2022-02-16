@@ -64,6 +64,8 @@ Let hi = "hello"; (declare)
 let hi = "bonjour"; (re-declare)
 hi = "bonjour*; (update) */
 
+
+
 // COMPARISON OPERATORS
 // ===: returns true if both operands have exactly the same value. Else it returns false.
 // !=: returns true if both operands don't have the same value.
@@ -81,19 +83,71 @@ hi = "bonjour*; (update) */
 // Another structure to use along if. It allows to make a second test only if the previous one already failed. Note that you can use as many 
 // else if as you want.
 
+
+
 // ARRAY
 // The [] syntax allows to access a specific element in the array using its index. Note that, in JavaScript, we always consider that indexes 
 // start at 0. So the first element is at index 0, the second one at index 1, etc...
+
 /*You can also modify a specific element this way:
 let arr = [1, 2, 3];
 arr[2] = 4;
 console.log(arr); // [1, 2, 4] 
 arr.length // size of the array */
+
 // Add and remove from an array
 // push() and pop() respectively. Note that they only work on the end of the array.
+
 // Itarate on array
 // let arr = ["Apple", "Pear", "Banana"];
 // For ... of
 // for (let elem of arr) {
 //   console.log("Do you want to eat a " + elem + "?");
 // }
+
+
+
+/* Separation of concerns (SoC) is a design principle for separating a computer program into distinct sections. Each section addresses a 
+separate concern, a set of information that affects the code of a computer program. */
+
+
+
+// FUNCTIONS
+
+// Simple function definition
+/* 
+function add(a, b) {
+  return a + b;
+}
+console.log("The sum of 2 and 3 is " + add(2, 3));
+It's the basic way to declare a function. The additional parameters we pass when calling a function are called its arguments. A function 
+can also return something using return. (But it doesn't have to.) */
+
+// Arrow funcitons
+/* let myFunction = (a, b) => {
+    return a + b;
+  }
+  console.log(myFunction(2, 3)); // 5
+  
+  myFunction = (a, b) => {
+    return a * b;
+  }
+console.log(myFunction(2, 3)); // 6
+Arrow functions ("arrow" is simply related to the look of the => symbol) is a shorter syntax to define functions. But it's important to 
+know that when doing so the function is an anonymous one. This means it doesn't have a specific name. That's why just defining it is 
+useless unless you do something with it. (Like assigning it to a variable in the examples.) */
+
+// Recursivity
+/* This has nothing to do with a language element in JavaScript. Recursivity is a programming technique that you can use in all programming 
+languages. It's used when a function calls itself.
+There exist some mathematical demonstrations that prove recursive functions can always be used instead of loops for all type of calculation, 
+just like the opposite is true. In term of ease of use and readability sometimes loops are more appropriate and sometimes recursive functions 
+are better. */
+// function count(i) {
+//     if (i <= 100) {
+//       console.log(i);
+//       count(i + 1); //rappelle la fonction
+//     }
+// }
+// count(1);
+// displays all numbers from 1 to 100
