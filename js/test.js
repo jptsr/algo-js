@@ -80,3 +80,20 @@ hi = "bonjour*; (update) */
 // ELSE IF
 // Another structure to use along if. It allows to make a second test only if the previous one already failed. Note that you can use as many 
 // else if as you want.
+
+// ARRAY
+// The [] syntax allows to access a specific element in the array using its index. Note that, in JavaScript, we always consider that indexes 
+// start at 0. So the first element is at index 0, the second one at index 1, etc...
+/*You can also modify a specific element this way:
+let arr = [1, 2, 3];
+arr[2] = 4;
+console.log(arr); // [1, 2, 4] 
+arr.length // size of the array */
+// Add and remove from an array
+// push() and pop() respectively. Note that they only work on the end of the array.
+// Itarate on array
+// let arr = ["Apple", "Pear", "Banana"];
+// For ... of
+// for (let elem of arr) {
+//   console.log("Do you want to eat a " + elem + "?");
+// }
