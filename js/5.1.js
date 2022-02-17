@@ -7,23 +7,6 @@
 
 const readlineSync = require("readline-sync");
 
-// let tvShow = {};
-// function askTvSerie(){
-//     let q_name = readlineSync.question("What's your favorite TvShow ? ");
-//     let q_year = new Number(readlineSync.question("What's the year of production ? "));
-//     let q_members = readlineSync.question("What are the members' name ? ");
-
-//     tvShow = {
-//         name: q_name,
-//         year: q_year,
-//         members: q_members
-//     }
-
-//     let jsonFile = JSON.stringify(tvShow, null, 2);
-//     return jsonFile;
-// }
-// console.log(askTvSerie());
-
 let q_name;
 let q_year;
 let howMany;
