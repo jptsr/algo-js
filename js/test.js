@@ -151,3 +151,25 @@ are better. */
 // }
 // count(1);
 // displays all numbers from 1 to 100
+
+
+
+// CLASSES
+// Classes are like an object template. They allow to create objects.
+
+// Constructor and instances
+// Classes often have a constructor. It's a function that will be called when the object is created.
+// When we create an object from a class we call that object an instance of that class. The act of creating it is called the instanciation.
+// We instanciate objects using the new keyword.
+
+// Methods and this
+// Classes will usually contain methods. That's just another name for function in the context of classes.
+// Methods (just like the constructor or the accessors) can use the this keyword to access the current object.
+
+// Accessors
+// As we've seen it you can access any attribute inside an object simply using the . operator. Classes allow us to make "fake" attributes 
+// that will instead trigger a function when we try to get or set them.
+
+// Class inheritance
+// Even though it's an advanced technique mostly used in frameworks that we will not discuss much more, know that it's possible to re-use 
+// the features of a class in another class. That's what's called inheritance.
