@@ -11,8 +11,7 @@
 const readlineSync = require("readline-sync");
 
 let final_n; 
-let prime_n = 2;
-
+// let prime_n = 2;
 let modulo;
 
 function ask(askUser){
