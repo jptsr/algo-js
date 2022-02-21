@@ -48,4 +48,4 @@ class Rectangle{
 }
 
 let rect1 = new Rectangle(5, 3, 7, 10);
-console.log(rect1.collides());
+rect1.collides();
