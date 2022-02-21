@@ -15,62 +15,35 @@ class Rectangle{
             rectangles[i] = new Rectangle(Math.floor(Math.random() * 11), Math.floor(Math.random() * 1001), Math.floor(Math.random() * 1001), Math.floor(Math.random() * 1001));
         }
         return rectangles;
-        // console.log(rectangles);
     }
 
     collides(otherRectangle){
         otherRectangle = [];
         otherRectangle = this.generate();
 
-        // for(let i = 0; i < otherRectangle.length; i++){
-        //     // otherRectangle[i];
-
-        //     let oTopXPos = otherRectangle[i].topLeftXPos;
-        //     let oTopYPos = otherRectangle[i].topLeftYPos
-        //     let dX = oTopXPos - this.topLeftXPos;
-        //     let dY = oTopYPos - this.topLeftYPos;
-        //     let oW = otherRectangle[i].width;
-        //     let oL = otherRectangle[i].length;
-        
-        //     if((oTopXPos > this.topLeftXPos && oTopYPos < this.topLeftYPos) && (Math.abs(dX) > this.width || Math.abs(dY) > this.length)){
-        //         console.log(i);
-        //         return false;
-        //     }else if((oTopXPos < this.topLeftXPos && oTopYPos > this.topLeftYPos) && (Math.abs(dX) > oW || Math.abs(dY) > oL)){
-        //         console.log(i);
-        //         return false;
-        //     }else if((oTopYPos > this.topLeftXPos && oTopXPos >= this.topLeftXPos) && (Math.abs(dX) > this.width || Math.abs(dY) > oL)){
-        //         console.log(i);
-        //         return false;
-        //     }else if((oTopYPos <= this.topLeftXPos && oTopXPos < this.topLeftXPos) && (Math.abs(dX) > oW || Math.abs(dY) > this.length)){
-        //         console.log(i);
-        //         return false;
-        //     }else{
-        //         console.log(i);
-        //         return true;
-        //     }
-        // }
-
         otherRectangle.forEach(element => {
-            // console.log(element);
             let oTopXPos = element.topLeftXPos;
-            let oTopYPos = element.topLeftYPos
+            let oTopYPos = element.topLeftYPos;
             let dX = oTopXPos - this.topLeftXPos;
             let dY = oTopYPos - this.topLeftYPos;
             let oW = element.width;
             let oL = element.length;
-        
+
+            console.log(element);
+
             if((oTopXPos > this.topLeftXPos && oTopYPos < this.topLeftYPos) && (Math.abs(dX) > this.width || Math.abs(dY) > this.length)){
-                return false;
+                console.log("Colliding : false");
             }else if((oTopXPos < this.topLeftXPos && oTopYPos > this.topLeftYPos) && (Math.abs(dX) > oW || Math.abs(dY) > oL)){
-                return false;
+                console.log("Colliding : false");
             }else if((oTopYPos > this.topLeftXPos && oTopXPos >= this.topLeftXPos) && (Math.abs(dX) > this.width || Math.abs(dY) > oL)){
-                return false;
+                console.log("Colliding : false");
             }else if((oTopYPos <= this.topLeftXPos && oTopXPos < this.topLeftXPos) && (Math.abs(dX) > oW || Math.abs(dY) > this.length)){
-                return false;
+                console.log("Colliding : false");
             }else{
-                return true;
+                console.log("Colliding : true");
             }
         });
+        console.log("Done");
     }
 }
 
