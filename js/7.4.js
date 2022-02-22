@@ -21,6 +21,7 @@
 // Bonus: Save the list of pizza flavors on the file system and reload it each time we launch the application.
 
 const readlineSync = require("readline-sync");
+const fs = require('fs');
 
 let action;
 let actionReturnMenu;
@@ -52,8 +53,16 @@ function chooseAction(){
     }
 }
 
+// fs.open('newfile_3.txt', 'w', function (err, file) {
+//     if (err) throw err;
+//     console.log('File is opened in write mode.');
+// });
+
 function displayList(){
-    console.log(arr);
+    for(let i = 0; i < arr.length; i++){
+    console.log(i + ". " + arr[i]);
+    }
+    // saveAsJSONFile();
     returnMenu();
 }
 
@@ -61,36 +70,57 @@ function newPizzaFlavour(){
     addFlavour = readlineSync.question("Please enter the new flavour : ");
     // console.log(addFlavour);
     arr.push(addFlavour);
-    console.log(arr);
+    displayList();
+    // saveAsJSONFile();
     returnMenu();
 }
 
 function removePizzaFlavour(){
-    removeFlavour = readlineSync.question("Please enter the flavour to remove : ");
-    for(let i = 0; i < arr.length; i++){
-        if(arr[i] === removeFlavour){
-            arr.pop(removeFlavour);
-            console.log(arr);
-            returnMenu();
-        }else{
-            actionRetry = readlineSync.questionInt("You enter the wrong pizza flavour, do you want to retry (press 1 to retry) ? ");
-            switch(actionRetry){
-                case 1:
-                    removePizzaFlavour();
-                    break;
-                default:
-                    chooseAction();
-                    break;
-            }
-
+    removeFlavour = readlineSync.questionInt("Please enter the flavour's index you want to remove : ");
+    if(removeFlavour > arr.length){
+        let retry = readlineSync.questionInt("You enter a wrong number.Do you want to retry ? Press 1 to retry. ");
+        switch(retry){
+            case 1:
+                removePizzaFlavour();
+                break;
+            default:
+                chooseAction();
+                break;
         }
+        
+    }else{
+        arr.splice(removeFlavour, 1);
+        displayList();
     }
+    
+    // arr.pop(removeFlavour);
+    // console.log(arr);
+    // for(let i = 0; i < arr.length; i++){
+    //     if(arr[i] === removeFlavour){
+    //         arr.splice(i, 1);
+    //         console.log(arr);
+    //         // saveAsJSONFile();
+    //         returnMenu();
+    //     }else{
+    //         actionRetry = readlineSync.questionInt("You enter the wrong pizza flavour, do you want to retry (press 1 to retry) ? ");
+    //         switch(actionRetry){
+    //             case 1:
+    //                 removePizzaFlavour();
+    //                 break;
+    //             default:
+    //                 chooseAction();
+    //                 break;
+    //         }
+
+    //     }
+    // }
 }
 
 function exit(){
-    actionExit = readlineSync.questionInt("Do you want to exit the program ? Enter 1 to quit (and any other number to continue) : ");
+    actionExit = readlineSync.questionInt("Do you want to exit the program ? Enter 1 to quit : ");
     switch(actionExit){
         case 1:
+            // saveAsJSONFile();
             console.log("You exit the program.");
             break;
         default:
@@ -100,8 +130,8 @@ function exit(){
 }
 
 function returnMenu(){
-    actionReturnMenu = readlineSync.question("Press 1 to return to the menu : ");
-    switch(1){
+    actionReturnMenu = readlineSync.questionInt("Press 1 to return to the menu : ");
+    switch(actionReturnMenu){
         case 1:
             chooseAction();
             break;
@@ -111,6 +141,19 @@ function returnMenu(){
             break;
     }
 }
+
+// function saveAsJSONFile(){
+//     let arrJSon = {
+//         Flavours: arr
+//     }
+//     jsonFile = JSON.stringify(arrJSon, null, 2);
+
+//     fs.writeFile('flavours.json', jsonFile, function(err){
+//         if (err) throw err;
+//         console.log("File is created");
+//     });
+//     console.log(jsonFile);
+// }
 
 // function saveJSon(){
 //     let arrJSon = {
@@ -130,5 +173,22 @@ function returnMenu(){
 
 // file();
 
-// chooseAction();
-// console.log(saveJSon());
+chooseAction();
+// console.log(jsonFile);
+
+// let arr1 = [5, 5, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
+    
+// for( let i = 0; i < arr1.length; i++){ 
+//     if ( arr1[i] === 5) { 
+//         arr1.splice(i, 1); // comprends pas qd 2 se suivent, en élimine qu'un des deux
+//         console.log(arr1);
+//     }
+// }
+
+// arr1.forEach(element => {
+//     if ( element === 5) { 
+//         arr1.splice(i, 1);
+//         console.log(arr1);
+//     }
+// });
+// console.log("code is done");
