@@ -32,6 +32,12 @@ let addFlavour;
 let removeFlavour;
 let jsonFile;
 
+// fs.open('flavours.json', 'w', function (err, file) {
+//     if (err) throw err;
+//     console.log('File is opened in write mode.');
+// });
+
+
 function chooseAction(){
     action = readlineSync.questionInt("Choose an action :" + " \n " + "1 - List all the pizza flavors" + " \n " + "2 - Add a new pizza flavor" + " \n " + "3 - Remove a pizza flavor" + " \n " + "4 - Exit the program" + " \n ");
     switch(action){
@@ -52,11 +58,6 @@ function chooseAction(){
             chooseAction();
     }
 }
-
-// fs.open('newfile_3.txt', 'w', function (err, file) {
-//     if (err) throw err;
-//     console.log('File is opened in write mode.');
-// });
 
 function displayList(){
     for(let i = 0; i < arr.length; i++){
@@ -120,7 +121,7 @@ function exit(){
     actionExit = readlineSync.questionInt("Do you want to exit the program ? Enter 1 to quit : ");
     switch(actionExit){
         case 1:
-            // saveAsJSONFile();
+            saveAsJSONFile();
             console.log("You exit the program.");
             break;
         default:
@@ -142,18 +143,29 @@ function returnMenu(){
     }
 }
 
-// function saveAsJSONFile(){
-//     let arrJSon = {
-//         Flavours: arr
-//     }
-//     jsonFile = JSON.stringify(arrJSon, null, 2);
+function saveAsJSONFile(){
+    // fs.unlink('flavours.json', function(err){
+    //     if (err) throw err;
+    // });
 
-//     fs.writeFile('flavours.json', jsonFile, function(err){
-//         if (err) throw err;
-//         console.log("File is created");
-//     });
-//     console.log(jsonFile);
-// }
+    let arrJSon = {
+        Flavours: arr
+    }
+    jsonFile = JSON.stringify(arrJSon, null, 2);
+
+    // fs.unlink('flavours.json');
+
+    fs.readFile('flavours.json', 'utf-8', function(err, data){
+        if (err) throw err;
+
+        fs.appendFile('flavours.json', jsonFile, 'utf-8', function(err){
+            if (err) throw err;
+            console.log("File is created");
+        });
+    });
+
+    console.log(jsonFile);
+}
 
 // function saveJSon(){
 //     let arrJSon = {
@@ -170,8 +182,6 @@ function returnMenu(){
 // async function file(){
 //     await window.showOpenFilePicker();
 // }
-
-// file();
 
 chooseAction();
 // console.log(jsonFile);
