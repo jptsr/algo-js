@@ -1,1 +1,3 @@
-# algo-js
+# algo-js  
+
+Those exercises were meant to train us with algorhythmics using Javascript langage. We practice loop, conditions, arrays, ... 
